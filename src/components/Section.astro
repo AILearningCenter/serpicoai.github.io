@@ -1,0 +1,14 @@
+---
+interface Props {
+  title?: string;
+}
+
+const { title } = Astro.props as Props;
+---
+
+<section class="section">
+  <div class="container">
+    {title && <h2 class="section__title">{title}</h2>}
+    <slot />
+  </div>
+</section>

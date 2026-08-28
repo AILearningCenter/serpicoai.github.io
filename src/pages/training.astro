@@ -1,0 +1,24 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Section from "../components/Section.astro";
+import CtaButton from "../components/CtaButton.astro";
+---
+
+<BaseLayout
+  title="1:1 Training"
+  description="Serpico AI — placeholder 1:1 Training page pending brand-rewrite-serpico-ai."
+>
+  <Section title="1:1 Training">
+    <p>[Placeholder — training process/pricing copy lands here via brand-rewrite-serpico-ai]</p>
+    <!--
+      The original site's session booking used a Wix Stores product page
+      ("/product-page/11-ai-development-training-150hour-1") for scheduling +
+      payment. This plan (static-site-foundation, Step 4) intentionally does
+      NOT fabricate a scheduling-vendor link here — point the CTA at the real
+      contact flow for now. Swap for a real Calendly/payment link only once
+      one actually exists, following the same human-in-the-loop pattern as
+      digital-storefront-vendor-setup.
+    -->
+    <CtaButton href="/contact" variant="primary">Book a Session</CtaButton>
+  </Section>
+</BaseLayout>

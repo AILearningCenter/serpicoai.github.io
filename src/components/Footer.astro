@@ -1,0 +1,31 @@
+---
+import { footerNav, brandName } from "../nav.config";
+
+const year = new Date().getFullYear();
+const columns = Object.values(footerNav);
+---
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__columns">
+      {columns.map((column) => (
+        <div>
+          <p class="site-footer__heading">{column.heading}</p>
+          <ul class="site-footer__list">
+            {column.links.map((link) => (
+              <li><a href={link.href}>{link.label}</a></li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+
+    <div class="site-footer__bottom">
+      <p>&copy; {year} {brandName}. All rights reserved.</p>
+      <!-- TODO(public-asset-migration-review): swap in real, approved social
+           links (LinkedIn, YouTube, Meetup, Facebook) once the manifest is
+           approved. Left as placeholders here rather than fabricated URLs. -->
+      <p>Social links pending asset migration approval</p>
+    </div>
+  </div>
+</footer>

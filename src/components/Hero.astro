@@ -1,0 +1,18 @@
+---
+interface Props {
+  heading: string;
+  subheading?: string;
+}
+
+const { heading, subheading } = Astro.props as Props;
+---
+
+<section class="hero">
+  <div class="container">
+    <h1 class="hero__heading">{heading}</h1>
+    {subheading && <p class="hero__subheading">{subheading}</p>}
+    <div class="hero__ctas">
+      <slot />
+    </div>
+  </div>
+</section>

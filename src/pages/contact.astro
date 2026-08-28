@@ -1,0 +1,55 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Section from "../components/Section.astro";
+
+// Step 4 (static-site-foundation): the original Wix contact form POSTed to a
+// Wix backend. This static site has none, so the form below uses a
+// zero-dependency mailto fallback (method="post" enctype="text/plain") per
+// the plan's own Step 4 options — no third-party form account exists yet.
+// TODO(brand-rewrite-serpico-ai): replace the placeholder mailto target with
+// the real, finalized contact address once the domain/rebrand lands; swap to
+// Formspree/Netlify Forms instead if a human sets one up later.
+const CONTACT_MAILTO = "mailto:contact@example.invalid";
+---
+
+<BaseLayout
+  title="Contact"
+  description="Serpico AI — placeholder Contact page pending brand-rewrite-serpico-ai."
+>
+  <Section title="Get in Touch">
+    <p>[Placeholder — intro copy lands here via brand-rewrite-serpico-ai]</p>
+
+    <form action={CONTACT_MAILTO} method="post" enctype="text/plain">
+      <p>
+        <label for="firstName">First name</label><br />
+        <input id="firstName" name="First name" type="text" required />
+      </p>
+      <p>
+        <label for="lastName">Last name</label><br />
+        <input id="lastName" name="Last name" type="text" />
+      </p>
+      <p>
+        <label for="email">Email</label><br />
+        <input id="email" name="Email" type="email" required />
+      </p>
+      <p>
+        <label for="company">Company name</label><br />
+        <input id="company" name="Company name" type="text" />
+      </p>
+      <p>
+        <label for="interest">Interest</label><br />
+        <select id="interest" name="Interest">
+          <option>1:1 Training</option>
+          <option>Corporate</option>
+          <option>Consulting</option>
+          <option>Other</option>
+        </select>
+      </p>
+      <p>
+        <label for="message">Message</label><br />
+        <textarea id="message" name="Message" rows="5"></textarea>
+      </p>
+      <button type="submit" class="cta-button cta-button--primary">Send Message</button>
+    </form>
+  </Section>
+</BaseLayout>
