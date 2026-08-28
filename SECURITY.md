@@ -5,9 +5,7 @@ please report it privately rather than opening a public issue.
 
 **Contact:** info@ailearningcenter.ai
 
-This is the organization's existing contact address; it will be updated once
-the `canonical-domain-serpico-ai` and `brand-rewrite-serpico-ai` plans land a
-finalized `serpico.ai` contact address.
+This is the organization's current contact address.
 
 Please include:
 
