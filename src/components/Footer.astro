@@ -1,5 +1,5 @@
 ---
-import { footerNav, brandName } from "../nav.config";
+import { footerNav, brandName, socialLinks } from "../nav.config";
 
 const year = new Date().getFullYear();
 const columns = Object.values(footerNav);
@@ -22,10 +22,15 @@ const columns = Object.values(footerNav);
 
     <div class="site-footer__bottom">
       <p>&copy; {year} {brandName}. All rights reserved.</p>
-      <!-- TODO(public-asset-migration-review): swap in real, approved social
-           links (LinkedIn, YouTube, Meetup, Facebook) once the manifest is
-           approved. Left as placeholders here rather than fabricated URLs. -->
-      <p>Social links pending asset migration approval</p>
+      <ul class="site-footer__social" aria-label="Social links">
+        {socialLinks.map((link) => (
+          <li>
+            <a href={link.href} target="_blank" rel="noreferrer noopener" aria-label={link.label}>
+              <img src={link.icon} alt="" aria-hidden="true" width="24" height="24" />
+            </a>
+          </li>
+        ))}
+      </ul>
     </div>
   </div>
 </footer>
