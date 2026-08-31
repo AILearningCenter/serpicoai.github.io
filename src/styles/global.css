@@ -178,7 +178,10 @@ a {
 
 /* Section wrapper */
 .section {
-  padding-block: var(--space-5);
+  /* margin, not padding: adjacent sections' vertical margins collapse to
+     the larger one instead of summing, so stacked sections get one 4rem
+     gap between them instead of 8rem (4rem bottom + 4rem top). */
+  margin-block: var(--space-5);
 }
 
 .section__image {

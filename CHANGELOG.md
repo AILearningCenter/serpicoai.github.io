@@ -45,3 +45,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   the homepage, training page, and services page — the services page had
   carried a stale `$150/hour` figure inherited from an older version of
   the source site.
+- Fixed double-escaped ampersands rendering as literal `&amp;` text on 4
+  section headings ("AI Consulting & Strategy", "Marketing & Growth" on
+  both `/services` and `/team`) — the `Section` component's `title` prop
+  had been hand-written with an HTML entity, which Astro then re-escaped
+  when rendering it as text.
+- Fixed excessive, inconsistent vertical whitespace between page sections
+  — `.section` used `padding-block`, which doesn't collapse between
+  adjacent siblings (so two stacked 4rem paddings summed to an 8rem gap);
+  switched to `margin-block`, which collapses correctly to a single 4rem
+  gap.
