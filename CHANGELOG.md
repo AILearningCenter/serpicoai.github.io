@@ -55,3 +55,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   adjacent siblings (so two stacked 4rem paddings summed to an 8rem gap);
   switched to `margin-block`, which collapses correctly to a single 4rem
   gap.
+- Filled in the footer's "CEI Partner", "Location", "Email", and "Phone"
+  links, which had been left as `#` placeholders — the real values
+  (`ceigateway.com`, `mailto:info@ailearningcenter.ai`, phone) already
+  existed elsewhere on the site (Contact/About pages) and just hadn't
+  been back-filled into the footer.

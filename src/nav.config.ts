@@ -30,14 +30,14 @@ export const footerNav = {
     heading: "Connect",
     links: [
       { label: "Contact", href: "/contact" },
-      // TODO(brand-rewrite-serpico-ai / public-asset-migration-review):
-      // fill in the real CEI partner link, address, email, and phone once
-      // approved — left as placeholders here so this plan doesn't fabricate
-      // contact details.
-      { label: "CEI Partner", href: "#" },
-      { label: "Location", href: "#" },
-      { label: "Email", href: "#" },
-      { label: "Phone", href: "#" },
+      // Real values (already used elsewhere on the site, e.g. contact.astro
+      // and about.astro) — not fabricated. No street address exists anywhere
+      // in the crawled source data for CEI's Phoenix location, so "Location"
+      // points at CEI's own site rather than guessing an address.
+      { label: "CEI Partner", href: "https://www.ceigateway.com/" },
+      { label: "Location", href: "https://www.ceigateway.com/" },
+      { label: "Email", href: "mailto:info@ailearningcenter.ai" },
+      { label: "Phone", href: "tel:+14802401242" },
     ],
   },
 };
