@@ -9,6 +9,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Design system pass to match the source site's actual look and feel
+  (previously a generic centered-blue template): navy/orange brand
+  colors, Poppins headings + Inter body text (Google Fonts), a
+  left-aligned two-column hero (text + image, matching the source site
+  instead of the previous centered single column), bordered card
+  layouts for "Who We Serve" and all 12 team members (photo left, bio
+  right, replacing the stacked photo-above-text layout), alternating
+  light-gray section bands for visual rhythm, and a small dependency-free
+  scroll-reveal animation (`IntersectionObserver`, progressive
+  enhancement — content is never hidden for no-JS visitors or before the
+  script runs) matching the real scroll animations found on the source
+  site.
 - Initial Astro-based static site foundation: shared layout, all page
   routes, SEO basics (sitemap, robots.txt, canonical/OG tags), and a
   minimal local preview server.

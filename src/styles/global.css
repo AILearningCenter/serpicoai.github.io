@@ -1,10 +1,15 @@
 :root {
+  /* Brand palette, matched to the source site (navy headings, orange
+     accent/CTA) rather than a generic default — see
+     var/asset-migration-manifest.md-adjacent design notes. */
   --color-bg: #ffffff;
   --color-text: #16181d;
   --color-muted: #5b6370;
   --color-border: #e3e6ea;
-  --color-primary: #1f5fff;
+  --color-primary: #001d4b;
   --color-primary-contrast: #ffffff;
+  --color-accent: #ff6b35;
+  --color-accent-contrast: #ffffff;
   --color-surface: #f6f8fb;
   --container-width: 72rem;
   --space-1: 0.5rem;
@@ -13,7 +18,10 @@
   --space-4: 2.5rem;
   --space-5: 4rem;
   --radius: 0.5rem;
-  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --radius-lg: 1rem;
+  --shadow-card: 0 1px 2px rgba(16, 24, 40, 0.06), 0 1px 3px rgba(16, 24, 40, 0.1);
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-heading: "Poppins", var(--font-sans);
 }
 
 *,
@@ -38,6 +46,15 @@ body {
 img {
   max-width: 100%;
   display: block;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--color-primary);
 }
 
 a {
@@ -65,8 +82,10 @@ a {
 }
 
 .site-header__brand {
+  font-family: var(--font-heading);
   font-weight: 700;
   font-size: 1.25rem;
+  color: var(--color-primary);
   text-decoration: none;
   display: inline-flex;
   align-items: center;
@@ -122,18 +141,39 @@ a {
   }
 }
 
-/* Hero */
+/* Hero: two-column (text left, image right) like the source site, not a
+   centered single column — collapses to one column on narrow viewports. */
 .hero {
   padding-block: var(--space-5);
   background: var(--color-surface);
-  text-align: center;
+}
+
+.hero .container {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  text-align: left;
+}
+
+.hero__copy {
+  flex: 1 1 26rem;
+  min-width: 0;
 }
 
 .hero__image {
-  width: 8rem;
-  height: 8rem;
-  margin: 0 auto var(--space-3);
+  flex: 1 1 16rem;
+  width: 100%;
+  max-width: 22rem;
+  height: auto;
+  margin-inline: auto;
   object-fit: contain;
+}
+
+@media (max-width: 48rem) {
+  .hero .container {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
 }
 
 .hero__heading {
@@ -144,36 +184,53 @@ a {
 .hero__subheading {
   color: var(--color-muted);
   font-size: 1.1rem;
-  max-width: 40rem;
-  margin: 0 auto var(--space-3);
+  max-width: 32rem;
+  margin: 0 0 var(--space-3);
+}
+
+@media (max-width: 48rem) {
+  .hero__subheading {
+    margin-inline: auto;
+  }
 }
 
 .hero__ctas {
   display: flex;
   gap: var(--space-2);
-  justify-content: center;
   flex-wrap: wrap;
+}
+
+@media (max-width: 48rem) {
+  .hero__ctas {
+    justify-content: center;
+  }
 }
 
 /* CTA button */
 .cta-button {
   display: inline-block;
   padding: 0.75rem 1.5rem;
-  border-radius: var(--radius);
+  border-radius: 999px;
   font-weight: 600;
   text-decoration: none;
   border: 1px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .cta-button--primary {
-  background: var(--color-primary);
-  color: var(--color-primary-contrast);
+  background: var(--color-accent);
+  color: var(--color-accent-contrast);
 }
 
 .cta-button--secondary {
   background: transparent;
-  border-color: var(--color-border);
-  color: var(--color-text);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.cta-button:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-card);
 }
 
 /* Section wrapper */
@@ -184,19 +241,21 @@ a {
   margin-block: var(--space-5);
 }
 
+/* Alternating light-gray band, like the source site's section rhythm.
+   Padding here is fine since it's the *inner* breathing room of the band
+   itself, not stacked against a neighboring section's own spacing (the
+   collapsing margin-block above still handles the gap between sections). */
+.section--alt {
+  background: var(--color-surface);
+  padding-block: var(--space-4);
+}
+
 .section__image {
   max-width: 16rem;
   max-height: 8rem;
   margin: 0 0 var(--space-3);
   object-fit: contain;
-}
-
-.team-photo {
-  width: 7.5rem;
-  height: 7.5rem;
-  border-radius: 50%;
-  object-fit: cover;
-  margin: 0 0 var(--space-2);
+  border-radius: var(--radius);
 }
 
 .inline-photo {
@@ -209,6 +268,65 @@ a {
 .section__title {
   font-size: 1.75rem;
   margin: 0 0 var(--space-3);
+}
+
+/* Card grid (e.g. "Who We Serve") */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: var(--space-3);
+  margin-top: var(--space-3);
+}
+
+.card {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  padding: var(--space-3);
+}
+
+.card h3 {
+  margin: 0 0 var(--space-1);
+  font-size: 1.1rem;
+}
+
+/* Team member cards: photo left, bio right, like the source site — not
+   stacked photo-above-text. */
+.team-card {
+  display: flex;
+  gap: var(--space-3);
+  align-items: flex-start;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  padding: var(--space-3);
+  margin-block-end: var(--space-3);
+}
+
+.team-card:last-child {
+  margin-block-end: 0;
+}
+
+.team-photo {
+  flex: 0 0 auto;
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.team-card__body h3 {
+  margin: 0 0 var(--space-1);
+}
+
+@media (max-width: 32rem) {
+  .team-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
 }
 
 /* Footer */
@@ -280,4 +398,28 @@ a {
 
 .site-footer__social a:hover img {
   opacity: 1;
+}
+
+/* Scroll-reveal: progressive enhancement only (see BaseLayout.astro's
+   inline script). No-JS visitors, and browsers without
+   IntersectionObserver, simply see the content at full opacity with no
+   fallback needed — the "js" class is what opts elements into the
+   hidden-until-revealed starting state in the first place. */
+.js [data-reveal] {
+  opacity: 0;
+  transform: translateY(1rem);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.js [data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }

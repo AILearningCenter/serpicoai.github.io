@@ -19,10 +19,21 @@ import CtaButton from "../components/CtaButton.astro";
     <CtaButton href="/training" variant="secondary">Get 1:1 Training</CtaButton>
   </Hero>
 
-  <Section title="Who We Serve">
-    <p><strong>Individual Learners</strong> — Professionals mastering AI skills through workshops or private 1:1 development sessions.</p>
-    <p><strong>Entrepreneurs &amp; Business Leaders</strong> — From AI discovery sessions to hands-on 1:1 coaching, understand AI strategy without becoming a full-time technologist.</p>
-    <p><strong>Teams &amp; Organizations</strong> — Companies ready to upskill their workforce with practical AI training that drives real business results.</p>
+  <Section title="Who We Serve" alt>
+    <div class="card-grid">
+      <div class="card">
+        <h3>Individual Learners</h3>
+        <p>Professionals mastering AI skills through workshops or private 1:1 development sessions.</p>
+      </div>
+      <div class="card">
+        <h3>Entrepreneurs &amp; Business Leaders</h3>
+        <p>From AI discovery sessions to hands-on 1:1 coaching, understand AI strategy without becoming a full-time technologist.</p>
+      </div>
+      <div class="card">
+        <h3>Teams &amp; Organizations</h3>
+        <p>Companies ready to upskill their workforce with practical AI training that drives real business results.</p>
+      </div>
+    </div>
   </Section>
 
   <Section title="What You'll Gain">
@@ -37,7 +48,7 @@ import CtaButton from "../components/CtaButton.astro";
     </ul>
   </Section>
 
-  <Section title="1:1 Training, One Way We Work With You">
+  <Section title="1:1 Training, One Way We Work With You" alt>
     <p>Our consulting practice includes hands-on 1:1 sessions — one engagement format among several, alongside corporate advisory and workshops.</p>
     <ol>
       <li><strong>Expert-Led Instruction</strong> — Every session is taught by someone actively deploying AI, not reading from outdated slides.</li>
@@ -68,7 +79,7 @@ import CtaButton from "../components/CtaButton.astro";
     </blockquote>
   </Section>
 
-  <Section image="/assets/partners/cei-logo-home.png" imageAlt="Center for Entrepreneurial Innovation logo">
+  <Section image="/assets/partners/cei-logo-home.png" imageAlt="Center for Entrepreneurial Innovation logo" alt>
     <p>Proud partner of the Center for Entrepreneurial Innovation (CEI) — Arizona's leading nonprofit business incubator.</p>
   </Section>
 </BaseLayout>
