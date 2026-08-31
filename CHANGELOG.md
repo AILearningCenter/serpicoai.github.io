@@ -18,9 +18,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   links (LinkedIn, YouTube, Meetup, Facebook) migrated from the source Wix
   site into `public/assets/` and wired into `Header.astro`, `BaseLayout.astro`,
   `Hero.astro`, and `Footer.astro`.
-- `public/assets/` now also holds 38 additional approved-but-not-yet-wired
-  images (team headshots, services photography, partner logos, about-page
-  photos) awaiting real page copy before they can be placed.
+- Wired 23 more of the migrated assets into real page content now that
+  it exists: all 12 team headshots on `/team` (matched by name), 5
+  service-delivery images on `/services`, the "Corporate Solutions" image
+  on `/corporate`, 3 images on `/about` (Origin Story, CEI partnership,
+  Founder), and a partner-logo image on both `/contact` and `/`. Added
+  optional `image`/`imageAlt` support to `Section.astro` to support this.
+  30 of the 45 migrated assets are now wired in; 15 remain deferred
+  (no events content model yet, no product page, a few uncaptioned/
+  duplicate images) — see `var/asset-migration-manifest.md`.
 - Rewrote all page copy from "Serpico AI Learning Center" to a "Serpico AI"
   consulting-firm positioning (Home, About, Services, Corporate, Training,
   Team, Contact) — Services/Corporate content organized around 5 consulting

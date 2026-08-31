@@ -181,6 +181,28 @@ a {
   padding-block: var(--space-5);
 }
 
+.section__image {
+  max-width: 16rem;
+  max-height: 8rem;
+  margin: 0 0 var(--space-3);
+  object-fit: contain;
+}
+
+.team-photo {
+  width: 7.5rem;
+  height: 7.5rem;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 0 var(--space-2);
+}
+
+.inline-photo {
+  max-width: 15rem;
+  height: auto;
+  border-radius: var(--radius);
+  margin: 0 0 var(--space-2);
+}
+
 .section__title {
   font-size: 1.75rem;
   margin: 0 0 var(--space-3);
