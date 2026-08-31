@@ -1,13 +1,16 @@
 ---
 interface Props {
   title?: string;
+  image?: string;
+  imageAlt?: string;
 }
 
-const { title } = Astro.props as Props;
+const { title, image, imageAlt } = Astro.props as Props;
 ---
 
 <section class="section">
   <div class="container">
+    {image && <img class="section__image" src={image} alt={imageAlt ?? ""} loading="lazy" />}
     {title && <h2 class="section__title">{title}</h2>}
     <slot />
   </div>
