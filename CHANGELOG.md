@@ -32,6 +32,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   Pages deployment (no secrets required).
 - `public/CNAME` pinning the custom domain `serpico.ai` for GitHub Pages.
 - README section documenting how to deploy and roll back.
+- `events` and `media-highlights` content collections (`src/content.config.ts`)
+  — adding a markdown file is enough to publish a new event or media
+  highlight, no code changes required. `/events` now renders a real
+  "Upcoming Events" list (2 genuine events found live on the org's Meetup
+  group) and a "Recent Media & Highlights" section.
+- `scripts/refresh-feeds.mjs` (`npm run refresh-feeds`): polls the org's
+  real external feeds (documented in `FEEDS.md`) and writes draft content
+  stubs to `var/feed-drafts/` for review — never auto-publishes. Meetup's
+  feed works today; YouTube's channel handle is currently broken (404) and
+  LinkedIn/Facebook have no public feed to poll, both flagged rather than
+  silently skipped.
+- `src/content/README.md`: maintenance doc for adding events/media
+  highlights and running the feed-refresh script.
 
 ### Fixed
 

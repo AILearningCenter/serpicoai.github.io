@@ -1,15 +1,65 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Section from "../components/Section.astro";
+import { getCollection } from "astro:content";
+
+const allEvents = await getCollection("events");
+const today = new Date();
+today.setHours(0, 0, 0, 0);
+
+const upcomingEvents = allEvents
+  .filter((e) => e.data.date >= today)
+  .sort((a, b) => a.data.date.valueOf() - b.data.date.valueOf());
+
+const allMedia = await getCollection("media-highlights");
+const recentMedia = allMedia
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 6);
+
+const dateFormatter = new Intl.DateTimeFormat("en-US", {
+  month: "long",
+  day: "numeric",
+  year: "numeric",
+});
 ---
 
 <BaseLayout
   title="Events"
-  description="Serpico AI — placeholder Events page. Full event listings land via events-media-feed-cross-promotion."
+  description="Upcoming Serpico AI events and recent media highlights — networking meetups, workshops, and video recaps."
 >
   <Section title="Upcoming Events">
-    <p>[Placeholder — this route exists so nav/footer links resolve. The real
-    events content model, listing, and feed-based cross-promotion are built
-    by the follow-on plan `events-media-feed-cross-promotion`, not here.]</p>
+    {upcomingEvents.length === 0 && <p>No upcoming events posted right now — check back soon, or see our Meetup group for the latest.</p>}
+    {upcomingEvents.map((event) => (
+      <article class="event-card">
+        <h3>{event.data.title}</h3>
+        <p class="event-card__meta">
+          {dateFormatter.format(event.data.date)}
+          {event.data.time && <> &middot; {event.data.time}</>}
+          &middot; {event.data.location}
+        </p>
+        <p>{event.data.description}</p>
+        {event.data.registrationUrl && (
+          <a href={event.data.registrationUrl} target="_blank" rel="noopener">RSVP / Learn More</a>
+        )}
+      </article>
+    ))}
+  </Section>
+
+  <Section title="Recent Media &amp; Highlights">
+    {recentMedia.length === 0 && <p>No media highlights posted yet.</p>}
+    <div class="media-grid">
+      {recentMedia.map((item) => (
+        <article class="media-card">
+          <h3>{item.data.title}</h3>
+          <p class="event-card__meta">{dateFormatter.format(item.data.date)}</p>
+          <p>{item.data.summary}</p>
+          {item.data.embedUrl && (
+            <a href={item.data.embedUrl} target="_blank" rel="noopener">
+              {item.data.mediaType === "video" ? "Watch" : "View"}
+            </a>
+          )}
+        </article>
+      ))}
+    </div>
   </Section>
 </BaseLayout>
