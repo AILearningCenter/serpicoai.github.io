@@ -1,16 +1,53 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Section from "../components/Section.astro";
+import CtaButton from "../components/CtaButton.astro";
 ---
 
 <BaseLayout
   title="Services"
-  description="Serpico AI — placeholder Services page pending brand-rewrite-serpico-ai."
+  description="Serpico AI consulting across five practice areas: AI Consulting & Strategy, Process Optimization, Product Development, Marketing & Growth, and Systems Integration."
 >
   <Section title="Our Services">
-    <p>[Placeholder — the 5 consulting pillars (AI Consulting & Strategy, Process
-    Optimization, Product Development, Marketing & Growth, Systems Integration)
-    land here via brand-rewrite-serpico-ai, with 1:1 Training, Corporate
-    Workshops, Advisory, and Networking Events folded in underneath.]</p>
+    <p>From fully customized corporate engagements to 1:1 expert consulting tailored to your specific needs — plus our white label program to equip your business with a stronger menu of offerings — we support both individual growth and organizational transformation.</p>
+  </Section>
+
+  <Section title="AI Consulting &amp; Strategy">
+    <p>Personalized, expert guidance to help you identify, implement, and scale AI solutions aligned with your business goals.</p>
+    <p><em>Delivered via:</em> Advisory &amp; Consulting sessions, and strategic guidance for organizations navigating AI adoption.</p>
+    <CtaButton href="/contact" variant="primary">Book Now</CtaButton>
+  </Section>
+
+  <Section title="Process Optimization">
+    <p>Direct access to experienced AI professionals who can implement solutions inside your existing workflows and operations.</p>
+    <p><em>Delivered via:</em> Access to AI Experts engagements — see <a href="/corporate">Corporate Solutions</a> for details.</p>
+  </Section>
+
+  <Section title="Product Development">
+    <p>Learn to build your own software with AI — hands-on sessions where you do all the work and keep all the code.</p>
+    <p><em>Delivered via:</em> 1:1 AI Training — $175/hour.</p>
+    <CtaButton href="/training" variant="primary">Book Now</CtaButton>
+  </Section>
+
+  <Section title="Marketing &amp; Growth">
+    <p>Community-driven events and thought leadership that bring together diverse minds to collaborate, share ideas, and spark cross-industry innovation.</p>
+    <p><em>Delivered via:</em> Networking Events, and Keynote &amp; Guest Speaker bookings for your own events.</p>
+    <CtaButton href="/events" variant="secondary">Upcoming Events</CtaButton>
+  </Section>
+
+  <Section title="Systems Integration">
+    <p>Tailored training programs, certifications, and workshops built to meet the specific needs of your team, industry, or organization — embedding AI capability directly into how you operate.</p>
+    <p><em>Delivered via:</em> Custom Workshops &amp; Certifications, and Custom Workshops &amp; Content for your organization.</p>
+    <CtaButton href="/contact" variant="secondary">Make a Request</CtaButton>
+  </Section>
+
+  <Section title="In-Person Sessions">
+    <p>Most of the above are available as live in-person sessions — real-time content that updates as fast as AI evolves, so what you learn applies immediately.</p>
+    <CtaButton href="/events" variant="secondary">Sessions Schedule</CtaButton>
+  </Section>
+
+  <Section title="Looking for Something Else?">
+    <p>Custom solutions start here. Can't find exactly what you're looking for? Reach out and our AI experts will craft a solution just for you.</p>
+    <CtaButton href="/contact" variant="primary">Contact Us</CtaButton>
   </Section>
 </BaseLayout>

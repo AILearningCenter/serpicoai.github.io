@@ -21,3 +21,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `public/assets/` now also holds 38 additional approved-but-not-yet-wired
   images (team headshots, services photography, partner logos, about-page
   photos) awaiting real page copy before they can be placed.
+- Rewrote all page copy from "Serpico AI Learning Center" to a "Serpico AI"
+  consulting-firm positioning (Home, About, Services, Corporate, Training,
+  Team, Contact) — Services/Corporate content organized around 5 consulting
+  pillars, all 12 team bios reframed around each person's specialty, every
+  fact (names, credentials, contact info, testimonials) kept accurate to
+  the source site.
+
+### Fixed
+
+- Reconciled the 1:1 AI Training rate to `$175/hour` consistently across
+  the homepage, training page, and services page — the services page had
+  carried a stale `$150/hour` figure inherited from an older version of
+  the source site.

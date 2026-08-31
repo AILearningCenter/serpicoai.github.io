@@ -1,21 +1,63 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Section from "../components/Section.astro";
+import CtaButton from "../components/CtaButton.astro";
 ---
 
 <BaseLayout
   title="About"
-  description="Serpico AI — placeholder About page pending brand-rewrite-serpico-ai."
+  description="Serpico AI was built to close the gap between AI innovation and real-world adoption — an AI consulting practice partnered with the Center for Entrepreneurial Innovation (CEI)."
 >
   <Section title="Our Story">
-    <p>[Placeholder — founder history and origin story land here via brand-rewrite-serpico-ai]</p>
+    <p>Serpico AI was built to address the growing gap between AI innovation and real-world adoption.</p>
+    <h3>Origin Story</h3>
+    <p>I've been in tech my whole life. Taught myself to code on a Commodore 64. Lived through the PC revolution, the internet boom, mobile, cloud... every major shift that's reshaped how we work.</p>
+    <p>I've never seen anything like this.</p>
+    <p>AI isn't just another tech wave. It moves so fast that even experts, people who do this for a living, have to study it hours a day, seven days a week, just to stay current.</p>
+    <p>If that's what it takes for the experts, no wonder everyone else feels like they're drowning. They're not just failing to get ahead. They can't even catch up.</p>
+    <p>That's the gap I built Serpico AI to close.</p>
+    <p>I partnered with Center for Entrepreneurial Innovation (CEI), in Phoenix, to create a practice where the guidance moves as fast as the technology.</p>
+    <blockquote>
+      <p>&quot;Most people don't need to become AI experts. They need someone in their corner who already is, tracking every update so they don't have to. That's what we do.&quot;</p>
+      <p>— Vincent Serpico, Founder, Serpico AI</p>
+    </blockquote>
   </Section>
 
   <Section title="Our Mission">
-    <p>[Placeholder — mission statement lands here]</p>
+    <p>Eliminate the lag between AI innovation and AI adoption by delivering hands-on engagements that reflect what's happening right now, guided by people who actually use these tools every day.</p>
+    <ul>
+      <li><strong>Create the Tools You Need</strong> — Our experts take you from problem to solved by guiding you to create your own solutions.</li>
+      <li><strong>Practitioner-Led</strong> — Learn from people actively deploying AI across real businesses.</li>
+      <li><strong>Hands-On Focus</strong> — Every engagement is about doing, building, and creating real outputs.</li>
+    </ul>
   </Section>
 
-  <Section title="Partnership">
-    <p>[Placeholder — CEI partnership mention lands here, kept factually unchanged]</p>
+  <Section title="Partnership with CEI">
+    <p>Serpico AI operates out of the Center for Entrepreneurial Innovation (CEI), Arizona's long-standing hub for entrepreneurial and innovation infrastructure.</p>
+    <blockquote>
+      <p>&quot;For years, CEI has focused on providing the resources innovators need to build faster and smarter. Right now, that infrastructure includes AI education that keeps pace with change. Serpico AI Learning Center delivers exactly that, and we're excited to bring it to our community.&quot;</p>
+      <p>— Jeff Saville, Executive Director, CEI</p>
+    </blockquote>
+    <!--
+      Kept verbatim, including the "Serpico AI Learning Center" reference —
+      it's a direct attributed quote; see the same note on index.astro.
+    -->
+  </Section>
+
+  <Section title="About CEI">
+    <p>The Center for Entrepreneurial Innovation is Arizona's leading nonprofit business incubator, providing workspace, resources, mentorship, and community to help startups and innovators grow and scale.</p>
+    <p>Located in Phoenix, AZ — <a href="https://www.ceigateway.com/" target="_blank" rel="noopener">www.ceigateway.com</a></p>
+  </Section>
+
+  <Section title="Founder">
+    <p><strong>Vincent Serpico</strong></p>
+    <p>For over 30 years Vincent has been bridging the gap between business vision and technical execution. A self-taught coder since 14, Vincent founded and led a 30-person dev shop that has built over 250+ applications. Vincent is a serial entrepreneur who's lived both sides, from writing code to signing contracts.</p>
+    <p>Vincent offers private 1:1 AI development training for founders and professionals ready to build their own software. With 30+ years guiding teams through every major technology shift and a deep understanding of application architecture from hundreds of projects, he brings a practitioner's perspective to every session that no tutorial can replicate.</p>
+    <a href="https://www.linkedin.com/in/vincentserpico" target="_blank" rel="noopener">Connect on LinkedIn</a>
+  </Section>
+
+  <Section title="Ready to Get Started?">
+    <p>Join Serpico AI and stay ahead of the curve.</p>
+    <CtaButton href="/contact" variant="primary">Contact Us</CtaButton>
   </Section>
 </BaseLayout>
