@@ -35,18 +35,39 @@ npm run serve     # serve ./dist/ via a minimal, dependency-free Node server
 
 ## Deployment
 
-This site deploys to **GitHub Pages** via `.github/workflows/deploy-pages.yml`,
-which builds and publishes on every push to `main` (or a manual
-`workflow_dispatch` run). No secrets are required — the workflow uses
-GitHub's built-in OIDC-based Pages deployment.
+Target: **GitHub Pages** on
+[`AILearningCenter/serpicoai.github.io`](https://github.com/AILearningCenter/serpicoai.github.io)
+(custom domain `serpico.ai` via `public/CNAME`).
 
-The custom domain (`serpico.ai`) is set via `public/CNAME`, which Astro
-copies into the build output automatically. In the repo's GitHub Pages
-settings ("Settings" → "Pages"), the custom domain field should also show
-`serpico.ai` once DNS is pointed at GitHub Pages (see the
-`canonical-domain-serpico-ai` plan for the DNS records to add).
+### Still needed before Pages goes live
 
-**Rollback:** GitHub Pages has no native "previous deployment" rollback —
-revert the offending commit on `main` (or push a fix) and let the workflow
-redeploy; alternatively, re-run a prior successful workflow run from the
-Actions tab ("Re-run all jobs").
+1. **Restore the Actions workflow** — the workflow file is parked at
+   `var/github-workflows/deploy-pages.yml` (gitignored) because pushing
+   `.github/workflows/*` requires a GitHub credential with the `workflow`
+   OAuth scope. Current `gh` auth only has `repo` (and related) scopes.
+   Grant the scope, then restore the file:
+
+   ```sh
+   gh auth refresh -h github.com -s workflow
+   mkdir -p .github/workflows
+   cp var/github-workflows/deploy-pages.yml .github/workflows/
+   git add .github/workflows/deploy-pages.yml
+   git commit -m "Add GitHub Pages deploy workflow"
+   git push
+   ```
+
+2. **Enable Pages in the repo** — Settings → Pages → Build and deployment
+   → Source: **GitHub Actions** (not "Deploy from a branch").
+
+3. **DNS for `serpico.ai`** — point the apex (and optional `www`) at GitHub
+   Pages per the `canonical-domain-serpico-ai` plan, then confirm the
+   custom domain field under Settings → Pages shows `serpico.ai`.
+
+Once the workflow is on `main`, every push (or a manual
+`workflow_dispatch`) builds with Node 22 and publishes `./dist/`. No
+deploy secrets are required — the workflow uses GitHub's OIDC Pages
+deployment.
+
+**Rollback:** revert the offending commit on `main` (or push a fix) and
+let the workflow redeploy; or re-run a prior successful workflow run from
+the Actions tab ("Re-run all jobs").

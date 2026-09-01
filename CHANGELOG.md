@@ -45,11 +45,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   pillars, all 12 team bios reframed around each person's specialty, every
   fact (names, credentials, contact info, testimonials) kept accurate to
   the source site.
-- GitHub Pages deployment workflow (`.github/workflows/deploy-pages.yml`),
-  triggered on push to `main`, publishing `dist/` via GitHub's OIDC-based
-  Pages deployment (no secrets required).
 - `public/CNAME` pinning the custom domain `serpico.ai` for GitHub Pages.
-- README section documenting how to deploy and roll back.
+- README section documenting GitHub Pages deploy status and remaining
+  setup steps (workflow restore, Pages source, DNS).
 - `events` and `media-highlights` content collections (`src/content.config.ts`)
   — adding a markdown file is enough to publish a new event or media
   highlight, no code changes required. `/events` now renders a real
@@ -63,6 +61,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   silently skipped.
 - `src/content/README.md`: maintenance doc for adding events/media
   highlights and running the feed-refresh script.
+
+### Changed
+
+- Parked the GitHub Pages Actions workflow under
+  `var/github-workflows/deploy-pages.yml` (gitignored) so `main` can be
+  pushed with a token that lacks the `workflow` OAuth scope. Restore it
+  to `.github/workflows/` after `gh auth refresh -h github.com -s workflow`
+  (see README Deployment). Clarified that `var/` is local-only.
 
 ### Fixed
 
