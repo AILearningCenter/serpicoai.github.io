@@ -69,6 +69,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   pushed with a token that lacks the `workflow` OAuth scope. Restore it
   to `.github/workflows/` after `gh auth refresh -h github.com -s workflow`
   (see README Deployment). Clarified that `var/` is local-only.
+- README Deployment: document that Pages must be enabled by a **repo
+  admin** (Settings → Pages → Source = GitHub Actions). Write
+  collaborators cannot enable it; until then `configure-pages` fails with
+  “Get Pages site failed / Not Found”.
 
 ### Fixed
 

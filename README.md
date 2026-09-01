@@ -39,35 +39,41 @@ Target: **GitHub Pages** on
 [`AILearningCenter/serpicoai.github.io`](https://github.com/AILearningCenter/serpicoai.github.io)
 (custom domain `serpico.ai` via `public/CNAME`).
 
-### Still needed before Pages goes live
+The Actions workflow (`.github/workflows/deploy-pages.yml`) is on `main`
+and builds with Node 22, uploading `./dist/`. No deploy secrets are
+required — it uses GitHub's OIDC Pages deployment.
 
-1. **Restore the Actions workflow** — the workflow file is parked at
-   `var/github-workflows/deploy-pages.yml` (gitignored) because pushing
-   `.github/workflows/*` requires a GitHub credential with the `workflow`
-   OAuth scope. Current `gh` auth only has `repo` (and related) scopes.
-   Grant the scope, then restore the file:
+### Blocker: Pages is not enabled yet
 
-   ```sh
-   gh auth refresh -h github.com -s workflow
-   mkdir -p .github/workflows
-   cp var/github-workflows/deploy-pages.yml .github/workflows/
-   git add .github/workflows/deploy-pages.yml
-   git commit -m "Add GitHub Pages deploy workflow"
-   git push
-   ```
+Workflow runs currently fail at `actions/configure-pages` with:
 
-2. **Enable Pages in the repo** — Settings → Pages → Build and deployment
-   → Source: **GitHub Actions** (not "Deploy from a branch").
+> Get Pages site failed … verify that the repository has Pages enabled
+> and configured to build using GitHub Actions
 
-3. **DNS for `serpico.ai`** — point the apex (and optional `www`) at GitHub
-   Pages per the `canonical-domain-serpico-ai` plan, then confirm the
-   custom domain field under Settings → Pages shows `serpico.ai`.
+`has_pages` is still `false`. Enabling Pages is a **repo admin** action.
+Collaborators with write (but not admin) cannot flip this in the UI or via
+the REST API (`POST /repos/.../pages` returns 404 without admin).
 
-Once the workflow is on `main`, every push (or a manual
-`workflow_dispatch`) builds with Node 22 and publishes `./dist/`. No
-deploy secrets are required — the workflow uses GitHub's OIDC Pages
-deployment.
+**An org/repo admin must:**
+
+1. Open
+   [Settings → Pages](https://github.com/AILearningCenter/serpicoai.github.io/settings/pages).
+2. Under **Build and deployment → Source**, choose **GitHub Actions**
+   (not “Deploy from a branch”).
+3. Re-run the failed workflow (Actions → Deploy to GitHub Pages →
+   Re-run all jobs), or push any commit to `main`.
+
+Optional after the first successful deploy: set **Custom domain** to
+`serpico.ai` in that same Pages settings page (the build already ships
+`public/CNAME`).
+
+### Still needed after Pages is enabled
+
+- **DNS for `serpico.ai`** — point the apex (and optional `www`) at
+  GitHub Pages per the `canonical-domain-serpico-ai` plan, then confirm
+  the custom domain field under Settings → Pages shows `serpico.ai` and
+  HTTPS is provisioned.
 
 **Rollback:** revert the offending commit on `main` (or push a fix) and
 let the workflow redeploy; or re-run a prior successful workflow run from
-the Actions tab ("Re-run all jobs").
+the Actions tab (“Re-run all jobs”).
