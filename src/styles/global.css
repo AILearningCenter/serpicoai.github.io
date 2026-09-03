@@ -78,23 +78,41 @@ a {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  padding-block: var(--space-2);
+  padding-block: var(--space-3);
 }
 
+/* Stacked lockup (icon above wordmark above tagline), matching the source
+   site's tall vertical logo block instead of an icon-beside-text row — the
+   height gap versus the source header (measured: 165px vs the previous
+   69px) came mostly from this structural difference, not padding. */
 .site-header__brand {
-  font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: 1.25rem;
   color: var(--color-primary);
   text-decoration: none;
   display: inline-flex;
-  align-items: center;
-  gap: var(--space-1);
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+  line-height: 1.2;
 }
 
 .site-header__logo {
-  width: 1.75rem;
-  height: 1.75rem;
+  width: 3rem;
+  height: 3rem;
+}
+
+.site-header__brand-name {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.35rem;
+  color: var(--color-primary);
+}
+
+.site-header__brand-tagline {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-muted);
 }
 
 .nav-toggle {

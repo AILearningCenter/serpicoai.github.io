@@ -9,6 +9,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Restructured the header lockup from an icon-beside-text row into a
+  vertical stack (icon above wordmark above tagline), with a larger icon
+  and more header padding, closing the height gap to the source site's
+  header from 96px to about 21-25px at a 1280px viewport — the earlier
+  row layout read as noticeably more compact than the source site's.
 - Design system pass to match the source site's actual look and feel
   (previously a generic centered-blue template): navy/orange brand
   colors, Poppins headings + Inter body text (Google Fonts), a
