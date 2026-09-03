@@ -30,12 +30,6 @@ export const footerNav = {
     heading: "Connect",
     links: [
       { label: "Contact", href: "/contact" },
-      // Real values (already used elsewhere on the site, e.g. contact.astro
-      // and about.astro) — not fabricated. No street address exists anywhere
-      // in the crawled source data for CEI's Phoenix location, so "Location"
-      // points at CEI's own site rather than guessing an address.
-      { label: "CEI Partner", href: "https://www.ceigateway.com/" },
-      { label: "Location", href: "https://www.ceigateway.com/" },
       { label: "Email", href: "mailto:info@ailearningcenter.ai" },
       { label: "Phone", href: "tel:+14802401242" },
     ],

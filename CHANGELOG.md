@@ -69,6 +69,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `src/content/README.md`: maintenance doc for adding events/media
   highlights and running the feed-refresh script.
 
+### Removed
+
+- CEI (Center for Entrepreneurial Innovation) partnership content site-wide,
+  reflecting that the partnership has ended: the footer's "CEI Partner" and
+  "Location" links, the homepage's CEI partner-logo section, About's
+  "Partnership with CEI" and "About CEI" sections, About's meta description
+  and Origin Story CEI references, Contact's CEI address line and "Our
+  Partner" section, and the header's "CEI Partner" tagline. The two
+  attributed Jeff Saville testimonial quotes (homepage, About) are kept
+  verbatim as historical praise rather than deleted or reworded — a real
+  person's quoted words aren't edited to scrub a detail they actually said.
+  The three CEI-branded image assets remain in `public/assets/partners/`
+  unreferenced rather than deleted.
+
 ### Fixed
 
 - Reconciled the 1:1 AI Training rate to `$175/hour` consistently across

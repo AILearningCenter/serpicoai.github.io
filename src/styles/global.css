@@ -107,14 +107,6 @@ a {
   color: var(--color-primary);
 }
 
-.site-header__brand-tagline {
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--color-muted);
-}
-
 .nav-toggle {
   display: none;
 }
