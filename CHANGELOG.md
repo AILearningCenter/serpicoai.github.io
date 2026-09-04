@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- A "Frequently Asked Questions" section on `/training` with the 6 real
+  questions from the source site's accordion and their real answers
+  (re-scraped live, since the original crawl only captured the
+  client-hydrated question text, not the answers) — covers coding
+  prerequisites, session count, tooling, follow-up support, the $175/hour
+  rate, and the step-by-step process to get started.
 - Restructured the header lockup from an icon-beside-text row into a
   vertical stack (icon above wordmark above tagline), with a larger icon
   and more header padding, closing the height gap to the source site's
