@@ -78,23 +78,30 @@ a {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  padding-block: var(--space-2);
+  padding-block: var(--space-3);
 }
 
+/* Icon-beside-wordmark row, logo sized to fill most of the header bar's
+   height rather than sitting small next to the text. */
 .site-header__brand {
-  font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: 1.25rem;
   color: var(--color-primary);
   text-decoration: none;
   display: inline-flex;
+  flex-direction: row;
   align-items: center;
-  gap: var(--space-1);
+  gap: 0.6rem;
 }
 
 .site-header__logo {
-  width: 1.75rem;
-  height: 1.75rem;
+  width: 3.5rem;
+  height: 3.5rem;
+}
+
+.site-header__brand-name {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--color-primary);
 }
 
 .nav-toggle {
@@ -146,6 +153,15 @@ a {
 .hero {
   padding-block: var(--space-5);
   background: var(--color-surface);
+}
+
+/* .section's margin-block (below) creates a real gap, not just background
+   change, between elements — invisible against a plain white page, but a
+   visible white seam when the hero (also --color-surface) is immediately
+   followed by an alt-banded section: two same-colored bands would otherwise
+   not abut. Zero just that boundary's top margin so they read as one band. */
+.hero + .section--alt {
+  margin-top: 0;
 }
 
 .hero .container {
@@ -291,6 +307,100 @@ a {
   font-size: 1.1rem;
 }
 
+/* Circular icon badge (plain emoji, no icon library/asset), used on
+   feature/offering cards — e.g. Corporate's "What We Offer". */
+.icon-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: var(--color-surface);
+  font-size: 1.25rem;
+  margin-bottom: var(--space-1);
+}
+
+/* Two-column intro (copy left, a highlighted feature card right) — e.g.
+   Corporate's "Corporate Solutions" / "Why Organizations Choose Us". */
+.corporate-hero {
+  display: flex;
+  gap: var(--space-4);
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.corporate-hero__copy {
+  flex: 1 1 20rem;
+  min-width: 0;
+}
+
+.corporate-hero__highlight {
+  flex: 1 1 18rem;
+  min-width: 0;
+}
+
+.corporate-hero__highlight h3 {
+  margin: 0 0 var(--space-2);
+}
+
+.checklist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.checklist li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+}
+
+.checklist__icon {
+  flex: 0 0 auto;
+}
+
+/* Numbered-step stepper — e.g. Corporate's "How It Works". */
+.stepper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+  gap: var(--space-3);
+  margin-top: var(--space-3);
+  text-align: center;
+}
+
+.step-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: var(--color-bg);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--color-primary);
+  margin-bottom: var(--space-2);
+}
+
+.stepper__step h3 {
+  margin: 0 0 var(--space-1);
+}
+
+/* Dark full-bleed CTA banner — e.g. Corporate's "Book a Discovery Call". */
+.cta-banner {
+  background: var(--color-primary);
+  color: var(--color-primary-contrast);
+}
+
+.cta-banner .section__title {
+  color: var(--color-primary-contrast);
+}
+
 /* Team member cards: photo left, bio right, like the source site — not
    stacked photo-above-text. */
 .team-card {
@@ -317,6 +427,53 @@ a {
   object-fit: cover;
 }
 
+/* Service cards: same bordered/shadowed card as .team-card, but the source
+   photos are landscape illustrations rather than headshots, so the image
+   is a rounded rectangle instead of a circular avatar. */
+.service-card {
+  display: flex;
+  gap: var(--space-3);
+  align-items: flex-start;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  padding: var(--space-3);
+  margin-block-end: var(--space-3);
+}
+
+.service-card:last-child {
+  margin-block-end: 0;
+}
+
+.service-card__photo {
+  flex: 0 0 auto;
+  width: 9rem;
+  height: 6rem;
+  border-radius: var(--radius);
+  object-fit: cover;
+}
+
+.service-card__body {
+  min-width: 0;
+}
+
+.service-card__body h3 {
+  margin: 0 0 var(--space-1);
+  font-size: 1.1rem;
+}
+
+@media (max-width: 32rem) {
+  .service-card {
+    flex-direction: column;
+  }
+
+  .service-card__photo {
+    width: 100%;
+    height: 10rem;
+  }
+}
+
 .team-card__body h3 {
   margin: 0 0 var(--space-1);
 }
@@ -327,33 +484,6 @@ a {
     align-items: center;
     text-align: center;
   }
-}
-
-/* Events & media highlights */
-.event-card {
-  padding-block: var(--space-3);
-  border-bottom: 1px solid var(--color-border);
-}
-
-.event-card:last-child {
-  border-bottom: none;
-}
-
-.event-card__meta {
-  color: var(--color-muted);
-  font-size: 0.9rem;
-}
-
-.media-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
-  gap: var(--space-3);
-}
-
-.media-card {
-  padding: var(--space-3);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius);
 }
 
 /* Footer */

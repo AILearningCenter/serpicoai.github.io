@@ -2,14 +2,6 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Section from "../components/Section.astro";
 
-// Step 4 (static-site-foundation): the original Wix contact form POSTed to a
-// Wix backend. This static site has none, so the form below uses a
-// zero-dependency mailto fallback (method="post" enctype="text/plain").
-// Step 6 (brand-rewrite-serpico-ai): now wired to the org's real, existing
-// contact address (info@ailearningcenter.ai) per this plan's own Constraint
-// to keep existing contact channels unchanged — not a new serpico.ai
-// address, which doesn't exist yet and is canonical-domain-serpico-ai's
-// concern, not this plan's.
 const CONTACT_MAILTO = "mailto:info@ailearningcenter.ai";
 ---
 
@@ -19,58 +11,13 @@ const CONTACT_MAILTO = "mailto:info@ailearningcenter.ai";
 >
   <Section title="Contact Us">
     <p>Have questions? Want to learn more about our corporate offerings or how to work with us? We'd love to hear from you.</p>
-
-    <h3>Send Us a Message</h3>
-    <form action={CONTACT_MAILTO} method="post" enctype="text/plain">
-      <p>
-        <label for="firstName">First name*</label><br />
-        <input id="firstName" name="First name" type="text" required />
-      </p>
-      <p>
-        <label for="lastName">Last name</label><br />
-        <input id="lastName" name="Last name" type="text" />
-      </p>
-      <p>
-        <label for="email">Email*</label><br />
-        <input id="email" name="Email" type="email" required />
-      </p>
-      <p>
-        <label for="company">Company name</label><br />
-        <input id="company" name="Company name" type="text" />
-      </p>
-      <p>
-        <label for="interest">I'm interested in...</label><br />
-        <select id="interest" name="Interest">
-          <option value="">Select an option</option>
-          <option>AI Consulting &amp; Strategy</option>
-          <option>Process Optimization</option>
-          <option>Product Development</option>
-          <option>Marketing &amp; Growth</option>
-          <option>Systems Integration</option>
-          <option>1:1 Training</option>
-          <option>Corporate</option>
-          <option>Other</option>
-        </select>
-      </p>
-      <p>
-        <label for="message">Let us know what you had in mind.</label><br />
-        <textarea id="message" name="Message" rows="5"></textarea>
-      </p>
-      <button type="submit" class="cta-button cta-button--primary">Submit</button>
-    </form>
   </Section>
 
-  <Section title="Get in Touch">
+  <Section>
     <ul>
       <li><strong>Email</strong> — <a href={CONTACT_MAILTO}>info@ailearningcenter.ai</a></li>
       <li><strong>Phone / Text</strong> — 480-240-1242</li>
-      <li><strong>Location</strong> — Center for Entrepreneurial Innovation (CEI), Phoenix, AZ</li>
       <li><strong>Connect</strong> — <a href="https://www.linkedin.com/company/serpico-ai-learning-center" target="_blank" rel="noopener">LinkedIn</a></li>
     </ul>
-  </Section>
-
-  <Section title="Our Partner" image="/assets/partners/our-partner-logo.png" imageAlt="CEI partner logo">
-    <p>Serpico AI operates in partnership with CEI – Arizona's leading nonprofit business incubator.</p>
-    <a href="https://www.ceigateway.com/" target="_blank" rel="noopener">Learn about CEI</a>
   </Section>
 </BaseLayout>
