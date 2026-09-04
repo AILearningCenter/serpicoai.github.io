@@ -1,0 +1,37 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Section from "../components/Section.astro";
+import { getCollection } from "astro:content";
+
+const allMedia = await getCollection("media-highlights");
+const recentMedia = allMedia.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const dateFormatter = new Intl.DateTimeFormat("en-US", {
+  month: "long",
+  day: "numeric",
+  year: "numeric",
+});
+---
+
+<BaseLayout
+  title="Media"
+  description="Recent Serpico AI media highlights — video and photo recaps from workshops and events."
+>
+  <Section title="Recent Media & Highlights">
+    {recentMedia.length === 0 && <p>No media highlights posted yet.</p>}
+    <div class="media-grid">
+      {recentMedia.map((item) => (
+        <article class="media-card">
+          <h3>{item.data.title}</h3>
+          <p class="media-card__meta">{dateFormatter.format(item.data.date)}</p>
+          <p>{item.data.summary}</p>
+          {item.data.embedUrl && (
+            <a href={item.data.embedUrl} target="_blank" rel="noopener">
+              {item.data.mediaType === "video" ? "Watch" : "View"}
+            </a>
+          )}
+        </article>
+      ))}
+    </div>
+  </Section>
+</BaseLayout>

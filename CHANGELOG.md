@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- `/media`: a new page hosting the "Recent Media & Highlights" section that
+  used to live on `/events`, so it survives that page's removal (below).
 - A "Frequently Asked Questions" section on `/training` with the 6 real
   questions from the source site's accordion and their real answers
   (re-scraped live, since the original crawl only captured the
@@ -88,6 +90,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   person's quoted words aren't edited to scrub a detail they actually said.
   The three CEI-branded image assets remain in `public/assets/partners/`
   unreferenced rather than deleted.
+- `/events` and its content collection (2 real upcoming Meetup events),
+  the "Events" nav item, and the Meetup-polling half of
+  `scripts/refresh-feeds.mjs` (the collection it fed no longer exists).
+  The Services page's two CTA buttons that pointed at `/events` were
+  repointed instead of deleted: "Upcoming Events" now links directly to
+  the org's real Meetup group (external), and "Sessions Schedule" (renamed
+  "Book a Session") now points at `/contact`. The "Recent Media &
+  Highlights" section that also lived on `/events` was preserved on its
+  own new `/media` page rather than removed — see Added, above.
 
 ### Fixed
 
