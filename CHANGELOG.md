@@ -98,9 +98,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 
+- The contact page's "Get in Touch" section heading — the email/phone/
+  LinkedIn list now flows directly under the page's intro text, without a
+  second heading breaking up a single-page contact list.
 - The contact page's inline "Send Us a Message" form (a `mailto:` `method="post"`
   fallback, since the site has no backend to receive a real POST) — the
-  "Get in Touch" section's listed email address is now the sole contact path.
+  listed email address is now the sole contact path.
 - CEI (Center for Entrepreneurial Innovation) partnership content site-wide,
   reflecting that the partnership has ended: the footer's "CEI Partner" and
   "Location" links, the homepage's CEI partner-logo section, About's
