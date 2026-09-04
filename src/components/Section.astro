@@ -4,12 +4,14 @@ interface Props {
   image?: string;
   imageAlt?: string;
   alt?: boolean;
+  class?: string;
 }
 
-const { title, image, imageAlt, alt } = Astro.props as Props;
+const { title, image, imageAlt, alt, class: className } = Astro.props as Props;
+const sectionClass = [alt ? "section section--alt" : "section", className].filter(Boolean).join(" ");
 ---
 
-<section class={alt ? "section section--alt" : "section"} data-reveal>
+<section class={sectionClass} data-reveal>
   <div class="container">
     {image && <img class="section__image" src={image} alt={imageAlt ?? ""} loading="lazy" />}
     {title && <h2 class="section__title">{title}</h2>}

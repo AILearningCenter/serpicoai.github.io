@@ -77,6 +77,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Brought `/corporate` closer to the source site's richer styling: a
+  two-column intro (copy + CTA left, a card-styled "Why Organizations
+  Choose Us" checklist right), circular icon badges on the 4 "What We
+  Offer" cards, a numbered-step "How It Works" (replacing the plain
+  numbered list), and a dark full-bleed "Book a Discovery Call" banner
+  (styling only — no contact form, consistent with the earlier `/contact`
+  form removal). `Section.astro` gained an optional passthrough `class`
+  prop to support the banner.
 - Reverted the header lockup back to an icon-beside-wordmark row (it was
   briefly a vertical icon/wordmark stack): the logo is now sized to fill
   most of the header bar's height, with the "Serpico AI" wordmark at a

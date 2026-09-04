@@ -8,17 +8,23 @@ import CtaButton from "../components/CtaButton.astro";
   title="Corporate Solutions"
   description="Custom AI consulting and training engagements designed to transform how your organization works with AI."
 >
-  <Section title="Corporate Solutions" image="/assets/services/corporate-solutions.jpg">
-    <p>Custom AI training and consulting designed to transform how your organization works with AI.</p>
-    <CtaButton href="/contact" variant="primary">Schedule a Discovery Call</CtaButton>
-  </Section>
-
-  <Section title="Why Organizations Choose Us" alt>
-    <div class="card-grid">
-      <div class="card"><p>Content updates as fast as AI evolves</p></div>
-      <div class="card"><p>Practitioners who deploy AI daily</p></div>
-      <div class="card"><p>Hands-on, applied learning</p></div>
-      <div class="card"><p>Flexible delivery (on-site or virtual)</p></div>
+  <Section>
+    <div class="corporate-hero">
+      <div class="corporate-hero__copy">
+        <h2 class="section__title">Corporate Solutions</h2>
+        <img class="inline-photo" src="/assets/services/corporate-solutions.jpg" alt="" loading="lazy" />
+        <p>Custom AI training and consulting designed to transform how your organization works with AI.</p>
+        <CtaButton href="/contact" variant="primary">Schedule a Discovery Call</CtaButton>
+      </div>
+      <div class="card corporate-hero__highlight">
+        <h3>Why Organizations Choose Us</h3>
+        <ul class="checklist">
+          <li><span class="checklist__icon" aria-hidden="true">✅</span> Content updates as fast as AI evolves</li>
+          <li><span class="checklist__icon" aria-hidden="true">✅</span> Practitioners who deploy AI daily</li>
+          <li><span class="checklist__icon" aria-hidden="true">✅</span> Hands-on, applied learning</li>
+          <li><span class="checklist__icon" aria-hidden="true">✅</span> Flexible delivery (on-site or virtual)</li>
+        </ul>
+      </div>
     </div>
   </Section>
 
@@ -26,6 +32,7 @@ import CtaButton from "../components/CtaButton.astro";
     <p>Comprehensive engagements to meet your organization where you are in your AI journey.</p>
     <div class="card-grid">
       <div class="card">
+        <span class="icon-badge" aria-hidden="true">🏢</span>
         <h3>Custom Workshops</h3>
         <p>Tailored training sessions designed for your specific team, industry, and challenges.</p>
         <ul>
@@ -37,6 +44,7 @@ import CtaButton from "../components/CtaButton.astro";
         </ul>
       </div>
       <div class="card">
+        <span class="icon-badge" aria-hidden="true">📚</span>
         <h3>Custom Content</h3>
         <p>Bespoke AI training materials and documentation for your organization.</p>
         <ul>
@@ -48,6 +56,7 @@ import CtaButton from "../components/CtaButton.astro";
         </ul>
       </div>
       <div class="card">
+        <span class="icon-badge" aria-hidden="true">🎯</span>
         <h3>Consulting</h3>
         <p>Strategic AI guidance to help your organization navigate adoption.</p>
         <ul>
@@ -59,6 +68,7 @@ import CtaButton from "../components/CtaButton.astro";
         </ul>
       </div>
       <div class="card">
+        <span class="icon-badge" aria-hidden="true">🧑‍🏫</span>
         <h3>Work With Our Experts</h3>
         <p>Direct access to our team of AI practitioners for your toughest challenges.</p>
         <ul>
@@ -74,12 +84,28 @@ import CtaButton from "../components/CtaButton.astro";
 
   <Section title="How It Works" alt>
     <p>A proven methodology for transforming your team's AI capabilities.</p>
-    <ol>
-      <li><strong>Discovery Call</strong> — Free 30-minute consultation to understand your team's needs and goals.</li>
-      <li><strong>Custom Design</strong> — We design a program tailored to your industry, team size, and objectives.</li>
-      <li><strong>Delivery</strong> — Your team learns together, builds together, and levels up together.</li>
-      <li><strong>Ongoing Success</strong> — Implementation guides and follow-up resources ensure lasting adoption.</li>
-    </ol>
+    <div class="stepper">
+      <div class="stepper__step">
+        <span class="step-badge">1</span>
+        <h3>Discovery Call</h3>
+        <p>Free 30-minute consultation to understand your team's needs and goals.</p>
+      </div>
+      <div class="stepper__step">
+        <span class="step-badge">2</span>
+        <h3>Custom Design</h3>
+        <p>We design a program tailored to your industry, team size, and objectives.</p>
+      </div>
+      <div class="stepper__step">
+        <span class="step-badge">3</span>
+        <h3>Delivery</h3>
+        <p>Your team learns together, builds together, and levels up together.</p>
+      </div>
+      <div class="stepper__step">
+        <span class="step-badge">4</span>
+        <h3>Ongoing Success</h3>
+        <p>Implementation guides and follow-up resources ensure lasting adoption.</p>
+      </div>
+    </div>
   </Section>
 
   <Section title="Who We Work With">
@@ -93,7 +119,7 @@ import CtaButton from "../components/CtaButton.astro";
     </div>
   </Section>
 
-  <Section title="Book a Discovery Call">
+  <Section title="Book a Discovery Call" class="cta-banner">
     <p>Let's discuss how we can help your organization stay ahead of the AI curve.</p>
     <CtaButton href="/contact" variant="primary">Schedule a Discovery Call</CtaButton>
   </Section>
