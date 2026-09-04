@@ -155,6 +155,15 @@ a {
   background: var(--color-surface);
 }
 
+/* .section's margin-block (below) creates a real gap, not just background
+   change, between elements — invisible against a plain white page, but a
+   visible white seam when the hero (also --color-surface) is immediately
+   followed by an alt-banded section: two same-colored bands would otherwise
+   not abut. Zero just that boundary's top margin so they read as one band. */
+.hero + .section--alt {
+  margin-top: 0;
+}
+
 .hero .container {
   display: flex;
   align-items: center;

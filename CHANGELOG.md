@@ -118,6 +118,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- Fixed a visible white seam on the homepage between the hero band and the
+  "Who We Serve" section immediately below it — both use the same
+  `--color-surface` background, but `.section`'s `margin-block` (the
+  general inter-section spacing mechanism) doesn't paint a background, so
+  a gap opened between two same-colored bands that were meant to read as
+  one continuous band. Zeroed just that boundary's top margin
+  (`.hero + .section--alt`) rather than changing the general spacing rule.
 - Reconciled the 1:1 AI Training rate to `$175/hour` consistently across
   the homepage, training page, and services page — the services page had
   carried a stale `$150/hour` figure inherited from an older version of
