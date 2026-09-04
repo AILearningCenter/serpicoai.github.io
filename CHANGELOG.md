@@ -69,8 +69,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `src/content/README.md`: maintenance doc for adding events/media
   highlights and running the feed-refresh script.
 
+### Changed
+
+- Reverted the header lockup back to an icon-beside-wordmark row (it was
+  briefly a vertical icon/wordmark stack): the logo is now sized to fill
+  most of the header bar's height, with the "Serpico AI" wordmark at a
+  slightly smaller size flowing to its right.
+- Extended the site's existing card-grid and alternating-section-band design
+  system (already used on the homepage and Team) to Services, Corporate, and
+  Training: Services' six offerings now render as photo+text cards; Corporate's
+  bullet-list sections ("Why Organizations Choose Us", "What We Offer",
+  "Who We Work With") are now card grids with alternating section bands;
+  Training's "How It Works" step list gets a banded section for visual rhythm.
+
 ### Removed
 
+- The contact page's inline "Send Us a Message" form (a `mailto:` `method="post"`
+  fallback, since the site has no backend to receive a real POST) — the
+  "Get in Touch" section's listed email address is now the sole contact path.
 - CEI (Center for Entrepreneurial Innovation) partnership content site-wide,
   reflecting that the partnership has ended: the footer's "CEI Partner" and
   "Location" links, the homepage's CEI partner-logo section, About's
