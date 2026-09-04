@@ -392,24 +392,6 @@ a {
   }
 }
 
-/* Media highlights */
-.media-card__meta {
-  color: var(--color-muted);
-  font-size: 0.9rem;
-}
-
-.media-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
-  gap: var(--space-3);
-}
-
-.media-card {
-  padding: var(--space-3);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius);
-}
-
 /* Footer */
 .site-footer {
   border-top: 1px solid var(--color-border);

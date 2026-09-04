@@ -9,8 +9,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- `/media`: a new page hosting the "Recent Media & Highlights" section that
-  used to live on `/events`, so it survives that page's removal (below).
 - A "Frequently Asked Questions" section on `/training` with the 6 real
   questions from the source site's accordion and their real answers
   (re-scraped live, since the original crawl only captured the
@@ -114,7 +112,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   the org's real Meetup group (external), and "Sessions Schedule" (renamed
   "Book a Session") now points at `/contact`. The "Recent Media &
   Highlights" section that also lived on `/events` was preserved on its
-  own new `/media` page rather than removed — see Added, above.
+  own new `/media` page rather than removed at the time — since fully
+  removed too, see below.
+- `/media` and everything that only existed to support it: the
+  `media-highlights` content collection and `src/content.config.ts`
+  (deleted outright — with `/media` gone, zero collections remain, so an
+  empty stub config would be pure dead weight), `src/content/README.md`,
+  the now-fully-unused `scripts/refresh-feeds.mjs` (its only remaining
+  logic, after the Meetup/events half was already removed, was checking
+  feeds for media content that no longer has anywhere to go) and its
+  `npm run refresh-feeds` script entry, and `FEEDS.md` (existed solely to
+  document what that script polled). The "Media" nav item is removed with
+  no replacement.
 
 ### Fixed
 

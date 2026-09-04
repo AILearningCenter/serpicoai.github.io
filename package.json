@@ -10,8 +10,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "serve": "node server.js",
-    "astro": "astro",
-    "refresh-feeds": "node scripts/refresh-feeds.mjs"
+    "astro": "astro"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",
