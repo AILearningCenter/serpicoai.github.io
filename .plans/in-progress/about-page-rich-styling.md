@@ -8,7 +8,10 @@
 - **Depends on:** none
 
 ## Progress
-- [ ] Step 1: Resolve one open scope question with a human before touching markup (testimonial-section treatment, given the CEI partnership framing it originally came with was deliberately removed)
+- [x] Step 1: Resolve one open scope question with a human before touching markup (testimonial-section treatment, given the CEI partnership framing it originally came with was deliberately removed)
+
+**Step 1 answer (human, /work 2026-09-05):** Lighter card/quote styling —
+accent-bordered blockquote in a `.card`, styled name/title. No dark banner.
 - [ ] Step 2: Two-column "Origin Story" layout (photo right, styled quote card) + emphasized key sentence
 - [ ] Step 3: Icon-badge treatment for "Our Mission"'s 3 items (matching Corporate's `.icon-badge` pattern), alt-banded
 - [ ] Step 4: Restyle "What People Are Saying" per Step 1's answer
