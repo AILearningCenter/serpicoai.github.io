@@ -138,6 +138,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- Fixed spacing bugs on every page's last section, most visible wherever
+  that section has its own background color (e.g. Corporate's dark "Book a
+  Discovery Call" banner): (1) `.section`'s transparent `margin-block`
+  left a blank gap between the last section and the footer on every page
+  — invisible against a plain white section, but a jarring seam of the
+  wrong color on a colored one; zeroed via `main > .section:last-child`
+  (targeting within `<main>`, since `<Footer />` is `<main>`'s sibling in
+  `BaseLayout.astro`, not the section's). (2) `.cta-banner` had no inner
+  padding at all (unlike `.section--alt`, which gets its own via a
+  different code path), so its content hugged the colored box's edges —
+  added a `padding-block`, sized generously (`--space-5`, not `.section--alt`'s
+  `--space-4`) since a full-bleed dark banner reads as cramped at the padding
+  that's fine for a plain light band.
 - Fixed a visible white seam on the homepage between the hero band and the
   "Who We Serve" section immediately below it — both use the same
   `--color-surface` background, but `.section`'s `margin-block` (the
