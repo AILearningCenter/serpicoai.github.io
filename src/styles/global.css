@@ -266,6 +266,19 @@ a {
   padding-block: var(--space-4);
 }
 
+/* .section's margin-block (above) is transparent, so the last section on a
+   page always leaves a blank gap before .site-footer — invisible against a
+   plain white section, but a visible seam of the wrong color whenever that
+   last section has its own background (.section--alt, .cta-banner). The
+   footer's own border-top already marks the boundary, so this gap is never
+   wanted; zero it regardless of the last section's color. <Footer /> is a
+   sibling of <main>, not of the individual .section elements inside it
+   (BaseLayout.astro: <main><slot /></main><Footer />), so this targets the
+   last .section within main rather than using a same-level `+` selector. */
+main > .section:last-child {
+  margin-bottom: 0;
+}
+
 .section__image {
   max-width: 16rem;
   max-height: 8rem;
@@ -395,6 +408,13 @@ a {
 .cta-banner {
   background: var(--color-primary);
   color: var(--color-primary-contrast);
+  /* Unlike .section--alt, this class doesn't come with .section--alt's own
+     padding-block (Section.astro's `class` prop is independent of `alt`),
+     so without its own inner breathing room the banner's content hugs the
+     colored box's edges. Uses --space-5 (not --space-4, .section--alt's
+     amount) since a full-bleed dark banner reads as cramped at the same
+     padding that's fine for a plain light band. */
+  padding-block: var(--space-5);
 }
 
 .cta-banner .section__title {
