@@ -158,6 +158,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- Closed promotion-review gaps on `/about`: restored the Our Story lead
+  sentence that had been dropped in the rich-styling pass; let the Origin
+  Story photo use full `.split-row__media` sizing (removed the
+  `inline-photo` / fixed 240px cap); made Mission `.icon-badge` circles
+  readable on `.section--alt` by using `--color-bg` there; aligned Mission
+  emoji order with the source mapping (⚡ / 🛠️ / 🎯); dropped the redundant
+  Founder `h2` in favor of the existing eyebrow.
 - Updated README's Deployment section, which still described GitHub Pages
   as blocked on a repo-admin action — confirmed via the GitHub API and
   workflow run history (at this `dev`→`main` promotion) that Pages has

@@ -334,6 +334,13 @@ main > .section:last-child {
   margin-bottom: var(--space-1);
 }
 
+/* On .section--alt the surface fill matches the band, so badge circles
+   disappear. Use page bg so they read as disks (Corporate cards already
+   sit on white, so this only matters for icon-list on alt sections). */
+.section--alt .icon-badge {
+  background: var(--color-bg);
+}
+
 /* Two-column intro (copy left, a highlighted feature card right) — e.g.
    Corporate's "Corporate Solutions" / "Why Organizations Choose Us". */
 .corporate-hero {
