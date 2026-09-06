@@ -401,6 +401,86 @@ a {
   color: var(--color-primary-contrast);
 }
 
+/* Generic two-column split (copy + media) — media on either side depending
+   on DOM order in the page markup. Used by About's "Origin Story" (media
+   right) and "Founder" (media left). */
+.split-row {
+  display: flex;
+  gap: var(--space-4);
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-bottom: var(--space-3);
+}
+
+.split-row__copy {
+  flex: 1 1 22rem;
+  min-width: 0;
+}
+
+.split-row__media {
+  flex: 1 1 16rem;
+  min-width: 0;
+  max-width: 20rem;
+  border-radius: var(--radius);
+}
+
+.text-accent {
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+/* Bordered quote card with an accent-colored left rule, replacing a plain
+   unstyled <blockquote>. */
+.quote-card {
+  border-left: 4px solid var(--color-accent);
+  margin: 0;
+}
+
+.quote-card p:last-child {
+  margin-bottom: 0;
+  font-weight: 600;
+  color: var(--color-muted);
+}
+
+/* Centered row of icon-badge items (e.g. About's "Our Mission") — like
+   .icon-badge on Corporate's cards, but without the card border/shadow. */
+.icon-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-4);
+  margin-top: var(--space-3);
+  text-align: center;
+}
+
+.icon-list__item {
+  flex: 1 1 12rem;
+  max-width: 16rem;
+}
+
+.icon-list__item h3 {
+  margin: 0 0 var(--space-1);
+}
+
+.eyebrow {
+  color: var(--color-accent);
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0 0 var(--space-1);
+}
+
+.linkedin-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.linkedin-button img {
+  display: inline-block;
+}
+
 /* Team member cards: photo left, bio right, like the source site — not
    stacked photo-above-text. */
 .team-card {

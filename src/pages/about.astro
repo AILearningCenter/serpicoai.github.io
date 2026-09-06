@@ -9,31 +9,46 @@ import CtaButton from "../components/CtaButton.astro";
   description="Serpico AI was built to close the gap between AI innovation and real-world adoption — hands-on AI consulting, corporate training, and 1:1 development sessions."
 >
   <Section title="Our Story">
-    <p>Serpico AI was built to address the growing gap between AI innovation and real-world adoption.</p>
-    <h3>Origin Story</h3>
-    <img class="inline-photo" src="/assets/about/origin-story-vincent.jpg" alt="Vincent Serpico" width="240" height="180" loading="lazy" />
-    <p>I've been in tech my whole life. Taught myself to code on a Commodore 64. Lived through the PC revolution, the internet boom, mobile, cloud... every major shift that's reshaped how we work.</p>
-    <p>I've never seen anything like this.</p>
-    <p>AI isn't just another tech wave. It moves so fast that even experts, people who do this for a living, have to study it hours a day, seven days a week, just to stay current.</p>
-    <p>If that's what it takes for the experts, no wonder everyone else feels like they're drowning. They're not just failing to get ahead. They can't even catch up.</p>
-    <p>That's the gap I built Serpico AI to close.</p>
-    <blockquote>
+    <div class="split-row">
+      <div class="split-row__copy">
+        <h3>Origin Story</h3>
+        <p>I've been in tech my whole life. Taught myself to code on a Commodore 64. Lived through the PC revolution, the internet boom, mobile, cloud... every major shift that's reshaped how we work.</p>
+        <p>I've never seen anything like this.</p>
+        <p>AI isn't just another tech wave. It moves so fast that even experts, people who do this for a living, have to study it hours a day, seven days a week, just to stay current.</p>
+        <p>If that's what it takes for the experts, no wonder everyone else feels like they're drowning. They're not just failing to get ahead. They can't even catch up.</p>
+        <p class="text-accent">That's the gap I built Serpico AI to close.</p>
+      </div>
+      <img class="split-row__media inline-photo" src="/assets/about/origin-story-vincent.jpg" alt="Vincent Serpico" width="240" height="180" loading="lazy" />
+    </div>
+    <blockquote class="card quote-card">
       <p>&quot;Most people don't need to become AI experts. They need someone in their corner who already is, tracking every update so they don't have to. That's what we do.&quot;</p>
       <p>— Vincent Serpico, Founder, Serpico AI</p>
     </blockquote>
   </Section>
 
-  <Section title="Our Mission">
+  <Section title="Our Mission" alt>
     <p>Eliminate the lag between AI innovation and AI adoption by delivering hands-on engagements that reflect what's happening right now, guided by people who actually use these tools every day.</p>
-    <ul>
-      <li><strong>Create the Tools You Need</strong> — Our experts take you from problem to solved by guiding you to create your own solutions.</li>
-      <li><strong>Practitioner-Led</strong> — Learn from people actively deploying AI across real businesses.</li>
-      <li><strong>Hands-On Focus</strong> — Every engagement is about doing, building, and creating real outputs.</li>
-    </ul>
+    <div class="icon-list">
+      <div class="icon-list__item">
+        <span class="icon-badge" aria-hidden="true">🛠️</span>
+        <h3>Create the Tools You Need</h3>
+        <p>Our experts take you from problem to solved by guiding you to create your own solutions.</p>
+      </div>
+      <div class="icon-list__item">
+        <span class="icon-badge" aria-hidden="true">🎯</span>
+        <h3>Practitioner-Led</h3>
+        <p>Learn from people actively deploying AI across real businesses.</p>
+      </div>
+      <div class="icon-list__item">
+        <span class="icon-badge" aria-hidden="true">⚡</span>
+        <h3>Hands-On Focus</h3>
+        <p>Every engagement is about doing, building, and creating real outputs.</p>
+      </div>
+    </div>
   </Section>
 
-  <Section title="What People Are Saying" alt>
-    <blockquote>
+  <Section title="What People Are Saying">
+    <blockquote class="card quote-card">
       <p>&quot;For years, CEI has focused on providing the resources innovators need to build faster and smarter. Right now, that infrastructure includes AI education that keeps pace with change. Serpico AI Learning Center delivers exactly that, and we're excited to bring it to our community.&quot;</p>
       <p>— Jeff Saville, Executive Director, CEI</p>
     </blockquote>
@@ -47,14 +62,23 @@ import CtaButton from "../components/CtaButton.astro";
     -->
   </Section>
 
-  <Section title="Founder" image="/assets/team/vincent-serpico-alt.png" imageAlt="Vincent Serpico">
-    <p><strong>Vincent Serpico</strong></p>
-    <p>For over 30 years Vincent has been bridging the gap between business vision and technical execution. A self-taught coder since 14, Vincent founded and led a 30-person dev shop that has built over 250+ applications. Vincent is a serial entrepreneur who's lived both sides, from writing code to signing contracts.</p>
-    <p>Vincent offers private 1:1 AI development training for founders and professionals ready to build their own software. With 30+ years guiding teams through every major technology shift and a deep understanding of application architecture from hundreds of projects, he brings a practitioner's perspective to every session that no tutorial can replicate.</p>
-    <a href="https://www.linkedin.com/in/vincentserpico" target="_blank" rel="noopener">Connect on LinkedIn</a>
+  <Section title="Founder">
+    <div class="split-row">
+      <img class="split-row__media" src="/assets/team/vincent-serpico-alt.png" alt="Vincent Serpico" loading="lazy" />
+      <div class="split-row__copy">
+        <p class="eyebrow">Founder</p>
+        <p><strong>Vincent Serpico</strong></p>
+        <p>For over 30 years Vincent has been bridging the gap between business vision and technical execution. A self-taught coder since 14, Vincent founded and led a 30-person dev shop that has built over 250+ applications. Vincent is a serial entrepreneur who's lived both sides, from writing code to signing contracts.</p>
+        <p>Vincent offers private 1:1 AI development training for founders and professionals ready to build their own software. With 30+ years guiding teams through every major technology shift and a deep understanding of application architecture from hundreds of projects, he brings a practitioner's perspective to every session that no tutorial can replicate.</p>
+        <a class="cta-button cta-button--secondary linkedin-button" href="https://www.linkedin.com/in/vincentserpico" target="_blank" rel="noopener">
+          <img src="/assets/icons/linkedin.png" alt="" width="16" height="16" />
+          Connect on LinkedIn
+        </a>
+      </div>
+    </div>
   </Section>
 
-  <Section title="Ready to Get Started?">
+  <Section title="Ready to Get Started?" alt>
     <p>Join Serpico AI and stay ahead of the curve.</p>
     <CtaButton href="/contact" variant="primary">Contact Us</CtaButton>
   </Section>

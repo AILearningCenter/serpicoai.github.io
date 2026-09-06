@@ -77,6 +77,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Brought `/about` closer to the source site's richer styling: a
+  two-column "Origin Story" (photo right, an accent-emphasized closing
+  sentence, the founder quote moved into a bordered accent-rule quote
+  card), a centered icon-badge row for "Our Mission", the same accent-rule
+  quote-card treatment for "What People Are Saying" (light styling, no
+  dark banner — there's no CEI content left to justify one after
+  `remove-cei-mentions`), a two-column "Founder" bio (photo left, a
+  "FOUNDER" eyebrow label, a LinkedIn button using the already-migrated
+  icon asset), and an alt-banded closing CTA.
 - Brought `/corporate` closer to the source site's richer styling: a
   two-column intro (copy + CTA left, a card-styled "Why Organizations
   Choose Us" checklist right), circular icon badges on the 4 "What We

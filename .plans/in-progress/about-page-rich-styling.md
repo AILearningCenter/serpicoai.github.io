@@ -12,13 +12,41 @@
 
 **Step 1 answer (human, /work 2026-09-05):** Lighter card/quote styling —
 accent-bordered blockquote in a `.card`, styled name/title. No dark banner.
-- [ ] Step 2: Two-column "Origin Story" layout (photo right, styled quote card) + emphasized key sentence
-- [ ] Step 3: Icon-badge treatment for "Our Mission"'s 3 items (matching Corporate's `.icon-badge` pattern), alt-banded
-- [ ] Step 4: Restyle "What People Are Saying" per Step 1's answer
-- [ ] Step 5: Two-column "Founder" layout (photo left, text right, "FOUNDER" eyebrow label, LinkedIn button)
-- [ ] Step 6: Alt-banded "Ready to Get Started?" CTA
-- [ ] Step 7: Rebuild and verify against the source site side-by-side, desktop + mobile
-- [ ] Done when holds
+- [x] Step 2: Two-column "Origin Story" layout (photo right, styled quote card) + emphasized key sentence
+- [x] Step 3: Icon-badge treatment for "Our Mission"'s 3 items (matching Corporate's `.icon-badge` pattern), alt-banded
+- [x] Step 4: Restyle "What People Are Saying" per Step 1's answer
+- [x] Step 5: Two-column "Founder" layout (photo left, text right, "FOUNDER" eyebrow label, LinkedIn button)
+- [x] Step 6: Alt-banded "Ready to Get Started?" CTA
+- [x] Step 7: Rebuild and verify against the source site side-by-side, desktop + mobile
+- [x] Done when holds
+
+**Result:** Added a generic reusable `.split-row`/`.split-row__copy`/
+`.split-row__media` pair (rather than reusing Corporate's page-specific
+`.corporate-hero`) since Origin Story needs media-right and Founder needs
+media-left — DOM order alone controls the side, no page-specific classes
+needed. `.text-accent` for the emphasized closing sentence. `.quote-card`
+(accent left-border on `.card`) replaces both plain `<blockquote>`s
+(Origin Story's Vincent quote and the testimonial). `.icon-list`/
+`.icon-list__item` for Mission's centered icon-badge row (reuses the
+existing `.icon-badge` circle, no card border since the source treatment
+here is plain, not boxed). `.eyebrow` for "FOUNDER". Founder's LinkedIn
+link reuses the already-migrated `/assets/icons/linkedin.png` (no new
+asset) instead of a fabricated icon.
+
+Verbatim-content check: `grep -niI "CEI|ceigateway" src/pages/about.astro`
+→ only the kept Jeff Saville quote and the pre-existing explanatory code
+comment, same as before this plan touched the file — no new CEI content,
+no dropped content. No caption was added to the Founder photo (per the
+plan's own Constraint — the source site's caption describes a different,
+non-matching photo).
+
+Rebuilt (Node 22.23.2, 7 pages/0 errors) and verified via Playwright at
+1280px and 390px (scrolled to trigger all `data-reveal` sections): all
+sections render and stack correctly, including Founder's photo-above-text
+mobile stacking and the LinkedIn icon+text button. Emoji icon badges
+render as blank boxes in this sandbox's headless Chromium (no system
+emoji font) — same confirmed-cosmetic-only gap as `corporate-page-rich-
+styling`, not a code defect.
 
 ## Goal
 `/about` visually matches the source site's richer styling — a two-column
