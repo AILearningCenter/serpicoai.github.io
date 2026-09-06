@@ -56,11 +56,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   pillars, all 12 team bios reframed around each person's specialty, every
   fact (names, credentials, contact info, testimonials) kept accurate to
   the source site.
-- GitHub Pages deployment workflow (`.github/workflows/deploy-pages.yml`),
-  triggered on push to `main`, publishing `dist/` via GitHub's OIDC-based
-  Pages deployment (no secrets required).
 - `public/CNAME` pinning the custom domain `serpico.ai` for GitHub Pages.
-- README section documenting how to deploy and roll back.
+- README section documenting GitHub Pages deploy status and remaining
+  setup steps (workflow restore, Pages source, DNS).
 - `events` and `media-highlights` content collections (`src/content.config.ts`)
   — adding a markdown file is enough to publish a new event or media
   highlight, no code changes required. `/events` now renders a real
@@ -86,6 +84,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   `remove-cei-mentions`), a two-column "Founder" bio (photo left, a
   "FOUNDER" eyebrow label, a LinkedIn button using the already-migrated
   icon asset), and an alt-banded closing CTA.
+- Parked the GitHub Pages Actions workflow under
+  `var/github-workflows/deploy-pages.yml` (gitignored) so `main` can be
+  pushed with a token that lacks the `workflow` OAuth scope. Restore it
+  to `.github/workflows/` after `gh auth refresh -h github.com -s workflow`
+  (see README Deployment). Clarified that `var/` is local-only. *(Note,
+  added at the `dev`→`main` promotion that reconciled this file: the
+  workflow was in fact restored and Pages has since been enabled by a repo
+  admin — confirmed live via `gh api .../pages` and a successful deploy
+  run — so this entry is historical; see README for current deploy state.)*
+- README Deployment: document that Pages must be enabled by a **repo
+  admin** (Settings → Pages → Source = GitHub Actions). Write
+  collaborators cannot enable it; until then `configure-pages` fails with
+  “Get Pages site failed / Not Found”.
 - Brought `/corporate` closer to the source site's richer styling: a
   two-column intro (copy + CTA left, a card-styled "Why Organizations
   Choose Us" checklist right), circular icon badges on the 4 "What We
@@ -147,6 +158,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- Updated README's Deployment section, which still described GitHub Pages
+  as blocked on a repo-admin action — confirmed via the GitHub API and
+  workflow run history (at this `dev`→`main` promotion) that Pages has
+  since been enabled, the custom domain `serpico.ai` has an approved HTTPS
+  cert, and deploys are succeeding. Replaced the stale blocker
+  instructions with the current state.
 - Fixed a visible white seam on the homepage between the hero band and the
   "Who We Serve" section immediately below it — both use the same
   `--color-surface` background, but `.section`'s `margin-block` (the
@@ -172,4 +189,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   links, which had been left as `#` placeholders — the real values
   (`ceigateway.com`, `mailto:info@ailearningcenter.ai`, phone) already
   existed elsewhere on the site (Contact/About pages) and just hadn't
-  been back-filled into the footer.
+  been back-filled into the footer. *("CEI Partner" and "Location" were
+  since removed entirely — see Removed, above; only Email/Phone remain in
+  the footer's current state.)*

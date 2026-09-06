@@ -1,4 +1,5 @@
-# Anchor local state (worktrees, caches) — never commit
+# Local-only working area (Anchor worktrees/caches, parked deploy
+# artifacts such as var/github-workflows/) — never commit
 var/
 
 # Astro build output / generated types

@@ -35,18 +35,22 @@ npm run serve     # serve ./dist/ via a minimal, dependency-free Node server
 
 ## Deployment
 
-This site deploys to **GitHub Pages** via `.github/workflows/deploy-pages.yml`,
-which builds and publishes on every push to `main` (or a manual
-`workflow_dispatch` run). No secrets are required — the workflow uses
-GitHub's built-in OIDC-based Pages deployment.
+Target: **GitHub Pages** on
+[`AILearningCenter/serpicoai.github.io`](https://github.com/AILearningCenter/serpicoai.github.io)
+(custom domain `serpico.ai` via `public/CNAME`).
 
-The custom domain (`serpico.ai`) is set via `public/CNAME`, which Astro
-copies into the build output automatically. In the repo's GitHub Pages
-settings ("Settings" → "Pages"), the custom domain field should also show
-`serpico.ai` once DNS is pointed at GitHub Pages (see the
-`canonical-domain-serpico-ai` plan for the DNS records to add).
+The Actions workflow (`.github/workflows/deploy-pages.yml`) is on `main`
+and builds with Node 22, uploading `./dist/`. No deploy secrets are
+required — it uses GitHub's OIDC Pages deployment.
 
-**Rollback:** GitHub Pages has no native "previous deployment" rollback —
-revert the offending commit on `main` (or push a fix) and let the workflow
-redeploy; alternatively, re-run a prior successful workflow run from the
-Actions tab ("Re-run all jobs").
+### Pages is enabled and deploying
+
+A repo admin has since enabled Pages (Source = GitHub Actions) and the
+workflow has completed successful deploys, including a manual
+`workflow_dispatch` run. The custom domain `serpico.ai` (and `www`) is
+configured with an approved HTTPS certificate — DNS and the domain setup
+described below are already done, not still pending.
+
+**Rollback:** revert the offending commit on `main` (or push a fix) and
+let the workflow redeploy; or re-run a prior successful workflow run from
+the Actions tab (“Re-run all jobs”).
